@@ -47,7 +47,9 @@ class ImageDebug(object):
 		global counter; counter += 1
 		if prefix: __prefix = "__debug_"+"%04d"%int(counter)+"_"
 		else:      __prefix = ""
-		if NC_DEBUG: save("test/steps/" + __prefix + \
-				filename + ".jpg", self.img)
+		if NC_DEBUG: 
+			success = save("debug/steps/" + __prefix + filename + ".jpg", self.img)
+			if not success:
+				print("ERROR: could not save debug image")
 
 image = ImageDebug
